@@ -58,12 +58,17 @@ public class InterfacePrincipalMedico extends javax.swing.JFrame {
         jLabelTipoAcesso.getAccessibleContext().setAccessibleName("Tipo Acesso");
 
         jButtonOpcoesPaciente.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonOpcoesPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\igor_\\OneDrive\\UEM\\3º Ano\\5190 - Programação Orientada a Objetos\\Desenvolvimento\\Aulas Práticas\\13_12.07.2016\\pessoa-fisica.png")); // NOI18N
+        jButtonOpcoesPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconpaciente.png"))); // NOI18N
         jButtonOpcoesPaciente.setText("Pacientes");
         jButtonOpcoesPaciente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonOpcoesPaciente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonOpcoesPaciente.setName("jButtonOpcoesPaciente"); // NOI18N
         jButtonOpcoesPaciente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonOpcoesPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOpcoesPacienteActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -72,7 +77,7 @@ public class InterfacePrincipalMedico extends javax.swing.JFrame {
         jPanelMenuPrincipal.add(jButtonOpcoesPaciente, gridBagConstraints);
 
         jButtonOpcoesRelatorio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonOpcoesRelatorio.setIcon(new javax.swing.ImageIcon("C:\\Users\\igor_\\OneDrive\\UEM\\3º Ano\\5190 - Programação Orientada a Objetos\\Desenvolvimento\\Aulas Práticas\\13_12.07.2016\\pessoa-fisica.png")); // NOI18N
+        jButtonOpcoesRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorios.png"))); // NOI18N
         jButtonOpcoesRelatorio.setText("Relatórios");
         jButtonOpcoesRelatorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonOpcoesRelatorio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -118,6 +123,10 @@ public class InterfacePrincipalMedico extends javax.swing.JFrame {
         InterfaceLogin interfaceLogin = new InterfaceLogin();
         interfaceLogin.setVisible(true);
     }//GEN-LAST:event_logoff
+
+    private void jButtonOpcoesPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpcoesPacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonOpcoesPacienteActionPerformed
 
     /**
      * @param args the command line arguments

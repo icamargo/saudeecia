@@ -49,7 +49,7 @@ public class InterfaceLogin extends javax.swing.JFrame {
         jLabelLogoLogin.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabelLogoLogin.setForeground(new java.awt.Color(0, 204, 204));
         jLabelLogoLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelLogoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pessoa-fisica.png"))); // NOI18N
+        jLabelLogoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saudeECia.jpg"))); // NOI18N
         jLabelLogoLogin.setText("Clínica Médica Saúde & Cia");
         jLabelLogoLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabelLogoLogin.setName("jLabelLogoLogin"); // NOI18N
