@@ -61,7 +61,7 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
         jLabelTipoAcesso.getAccessibleContext().setAccessibleName("Tipo Acesso");
 
         jButtonOpcoesConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonOpcoesConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultaMedica.jpg"))); // NOI18N
+        jButtonOpcoesConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultaMedica01..png"))); // NOI18N
         jButtonOpcoesConsulta.setText("Consultas");
         jButtonOpcoesConsulta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonOpcoesConsulta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -80,7 +80,7 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
         jPanelMenuPrincipal.add(jButtonOpcoesConsulta, gridBagConstraints);
 
         jButtonOpcoesPaciente.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonOpcoesPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconpaciente.png"))); // NOI18N
+        jButtonOpcoesPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconpaciente01.png"))); // NOI18N
         jButtonOpcoesPaciente.setText("Pacientes");
         jButtonOpcoesPaciente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonOpcoesPaciente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -94,7 +94,7 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
         jPanelMenuPrincipal.add(jButtonOpcoesPaciente, gridBagConstraints);
 
         jButtonOpcoesRelatorio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonOpcoesRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorios.png"))); // NOI18N
+        jButtonOpcoesRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Relatorio.png"))); // NOI18N
         jButtonOpcoesRelatorio.setText("Relatórios");
         jButtonOpcoesRelatorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonOpcoesRelatorio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -125,7 +125,7 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
         jButtonLogoff.getAccessibleContext().setAccessibleName("ButtonLogoff");
 
         jButtonOpcoesUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonOpcoesUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario.png"))); // NOI18N
+        jButtonOpcoesUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario01.png"))); // NOI18N
         jButtonOpcoesUsuario.setText("Usuários");
         jButtonOpcoesUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonOpcoesUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

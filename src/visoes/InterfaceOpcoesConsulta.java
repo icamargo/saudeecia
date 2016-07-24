@@ -41,7 +41,7 @@ public class InterfaceOpcoesConsulta extends javax.swing.JFrame {
         jPanelOpcoesConsulta.setLayout(new java.awt.GridBagLayout());
 
         jButtonCriarConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonCriarConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/NovaconsultaMedica.jpg"))); // NOI18N
+        jButtonCriarConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/consultaMedica.png"))); // NOI18N
         jButtonCriarConsulta.setText("Criar Consulta");
         jButtonCriarConsulta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonCriarConsulta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

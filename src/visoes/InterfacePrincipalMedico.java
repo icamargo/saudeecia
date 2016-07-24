@@ -58,7 +58,7 @@ public class InterfacePrincipalMedico extends javax.swing.JFrame {
         jLabelTipoAcesso.getAccessibleContext().setAccessibleName("Tipo Acesso");
 
         jButtonOpcoesPaciente.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonOpcoesPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconpaciente.png"))); // NOI18N
+        jButtonOpcoesPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/iconpaciente01.png"))); // NOI18N
         jButtonOpcoesPaciente.setText("Pacientes");
         jButtonOpcoesPaciente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonOpcoesPaciente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -77,7 +77,7 @@ public class InterfacePrincipalMedico extends javax.swing.JFrame {
         jPanelMenuPrincipal.add(jButtonOpcoesPaciente, gridBagConstraints);
 
         jButtonOpcoesRelatorio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonOpcoesRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorios.png"))); // NOI18N
+        jButtonOpcoesRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Relatorio.png"))); // NOI18N
         jButtonOpcoesRelatorio.setText("Relatórios");
         jButtonOpcoesRelatorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonOpcoesRelatorio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

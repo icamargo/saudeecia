@@ -30,6 +30,7 @@ public class InterfaceLogin extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jButton1 = new javax.swing.JButton();
         jPanelLogin = new javax.swing.JPanel();
         jLabelLogoLogin = new javax.swing.JLabel();
         jLabelTxtLogin = new javax.swing.JLabel();
@@ -37,6 +38,9 @@ public class InterfaceLogin extends javax.swing.JFrame {
         jLabelTxtSenha = new javax.swing.JLabel();
         jPswFieldSenha = new javax.swing.JPasswordField();
         jButtonEntrar = new javax.swing.JButton();
+        jButtonImagemSaudeeCia = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Saúde & Cia - Login");
@@ -49,13 +53,14 @@ public class InterfaceLogin extends javax.swing.JFrame {
         jLabelLogoLogin.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         jLabelLogoLogin.setForeground(new java.awt.Color(0, 204, 204));
         jLabelLogoLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelLogoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saudeECia.jpg"))); // NOI18N
+        jLabelLogoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saudeECiaRascunho.png"))); // NOI18N
         jLabelLogoLogin.setText("Clínica Médica Saúde & Cia");
         jLabelLogoLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabelLogoLogin.setName("jLabelLogoLogin"); // NOI18N
         jLabelLogoLogin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         jPanelLogin.add(jLabelLogoLogin, gridBagConstraints);
 
         jLabelTxtLogin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -65,7 +70,7 @@ public class InterfaceLogin extends javax.swing.JFrame {
         jLabelTxtLogin.setName("jLabelTxtLogin"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanelLogin.add(jLabelTxtLogin, gridBagConstraints);
 
@@ -74,7 +79,7 @@ public class InterfaceLogin extends javax.swing.JFrame {
         jTextFieldLogin.setName("jTextFieldLogin"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.ipadx = 150;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
         jPanelLogin.add(jTextFieldLogin, gridBagConstraints);
@@ -87,7 +92,7 @@ public class InterfaceLogin extends javax.swing.JFrame {
         jLabelTxtSenha.setName("jLabelTxtSenha"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanelLogin.add(jLabelTxtSenha, gridBagConstraints);
 
@@ -96,7 +101,7 @@ public class InterfaceLogin extends javax.swing.JFrame {
         jPswFieldSenha.setName("jPswFieldSenha"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.ipadx = 150;
         jPanelLogin.add(jPswFieldSenha, gridBagConstraints);
         jPswFieldSenha.getAccessibleContext().setAccessibleName("Senha");
@@ -112,9 +117,16 @@ public class InterfaceLogin extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanelLogin.add(jButtonEntrar, gridBagConstraints);
+
+        jButtonImagemSaudeeCia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/saudeECia..png"))); // NOI18N
+        jButtonImagemSaudeeCia.setName("jButtonImagemSaudeeCia"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        jPanelLogin.add(jButtonImagemSaudeeCia, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -189,7 +201,9 @@ public class InterfaceLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonEntrar;
+    private javax.swing.JButton jButtonImagemSaudeeCia;
     private javax.swing.JLabel jLabelLogoLogin;
     private javax.swing.JLabel jLabelTxtLogin;
     private javax.swing.JLabel jLabelTxtSenha;

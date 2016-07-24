@@ -39,7 +39,7 @@ public class InterfacePacienteSecretaria extends javax.swing.JFrame {
         jPanelOpcoesPaciente.setLayout(new java.awt.GridBagLayout());
 
         jButtonCriarPaciente.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonCriarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/criaPaciente.jpg"))); // NOI18N
+        jButtonCriarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/criaPaciente01..png"))); // NOI18N
         jButtonCriarPaciente.setText("Criar Paciente");
         jButtonCriarPaciente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonCriarPaciente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -51,7 +51,7 @@ public class InterfacePacienteSecretaria extends javax.swing.JFrame {
         jPanelOpcoesPaciente.add(jButtonCriarPaciente, gridBagConstraints);
 
         jButtonListarPacientes.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonListarPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorios.png"))); // NOI18N
+        jButtonListarPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorios01.png"))); // NOI18N
         jButtonListarPacientes.setText("Listar Pacientes");
         jButtonListarPacientes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonListarPacientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -63,7 +63,7 @@ public class InterfacePacienteSecretaria extends javax.swing.JFrame {
         jPanelOpcoesPaciente.add(jButtonListarPacientes, gridBagConstraints);
 
         jButtonVoltar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/voltar.png"))); // NOI18N
+        jButtonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/voltar01.png"))); // NOI18N
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
         jButtonVoltar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
