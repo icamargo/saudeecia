@@ -12,11 +12,11 @@ import javax.swing.text.MaskFormatter;
  *
  * @author igor_
  */
-public class InterfaceCadConsulta extends javax.swing.JFrame {
+public class InterfaceCadPaciente extends javax.swing.JFrame {
     /**
      * Creates new form InterfaceCadConsulta
      */
-    public InterfaceCadConsulta() {
+    public InterfaceCadPaciente() {
         initComponents();
     }
 
@@ -146,7 +146,7 @@ public class InterfaceCadConsulta extends javax.swing.JFrame {
         jPanelCadPaciente.add(jTextFieldDataNascimento, gridBagConstraints);
 
         jComboBoxTipoConvenio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jComboBoxTipoConvenio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal - 1 Hora", "Retorno - 30 Minutos" }));
+        jComboBoxTipoConvenio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Particular", "Plano de Saúde" }));
         jComboBoxTipoConvenio.setName("jComboBoxTipoConvenio"); // NOI18N
         jComboBoxTipoConvenio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
