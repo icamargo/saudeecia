@@ -31,6 +31,7 @@ public class InterfaceOpcoesConsulta extends javax.swing.JFrame {
         jPanelOpcoesConsulta = new javax.swing.JPanel();
         jButtonCriarConsulta = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
+        jButtonGerenciaConsulta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Saúde & Cia - Menu Consultas");
@@ -70,9 +71,26 @@ public class InterfaceOpcoesConsulta extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
         jPanelOpcoesConsulta.add(jButtonVoltar, gridBagConstraints);
+
+        jButtonGerenciaConsulta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButtonGerenciaConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/GerenciarConsulta.png"))); // NOI18N
+        jButtonGerenciaConsulta.setText("Gerenciar consulta");
+        jButtonGerenciaConsulta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
+        jButtonGerenciaConsulta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonGerenciaConsulta.setName("jButtonGerenciaConsulta"); // NOI18N
+        jButtonGerenciaConsulta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanelOpcoesConsulta.add(jButtonGerenciaConsulta, gridBagConstraints);
+        jButtonGerenciaConsulta.getAccessibleContext().setAccessibleName("jButtonGerenciaConta");
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -135,6 +153,7 @@ public class InterfaceOpcoesConsulta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCriarConsulta;
+    private javax.swing.JButton jButtonGerenciaConsulta;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JPanel jPanelOpcoesConsulta;
     // End of variables declaration//GEN-END:variables

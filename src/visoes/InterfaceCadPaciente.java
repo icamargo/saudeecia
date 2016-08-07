@@ -81,7 +81,7 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanelCadPaciente.add(jLabelNome, gridBagConstraints);
 
@@ -230,6 +230,8 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanelCadPaciente.add(jButtonCancelar, gridBagConstraints);
 
+        jLabelEndereco.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelEndereco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelEndereco.setText("Endereço:");
         jLabelEndereco.setName("jLabelEndereco"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -239,6 +241,8 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanelCadPaciente.add(jLabelEndereco, gridBagConstraints);
 
+        jLabelCelular.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelCelular.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelCelular.setText("Celular:");
         jLabelCelular.setName("jLabelCelular"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -280,6 +284,8 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanelCadPaciente.add(jTextFieldFormatoCelular, gridBagConstraints);
 
+        jLabelEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelEmail.setText("Email:");
         jLabelEmail.setName("jLabelEmail"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -289,6 +295,8 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanelCadPaciente.add(jLabelEmail, gridBagConstraints);
 
+        jLabelTelefone.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabelTelefone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTelefone.setText("Telefone:");
         jLabelTelefone.setName("jLabelTelefone"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
