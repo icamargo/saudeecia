@@ -172,7 +172,11 @@ public class InterfaceCadConsulta extends javax.swing.JFrame {
         jPanelCadConsulta.add(jButtonCriar, gridBagConstraints);
         jButtonCriar.getAccessibleContext().setAccessibleName("jButtonCriar");
 
-        jTextFieldFormatadoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        try {
+            jTextFieldFormatadoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldFormatadoData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldFormatadoData.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
         jTextFieldFormatadoData.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -186,7 +190,11 @@ public class InterfaceCadConsulta extends javax.swing.JFrame {
         jPanelCadConsulta.add(jTextFieldFormatadoData, gridBagConstraints);
         jTextFieldFormatadoData.getAccessibleContext().setAccessibleName("TextFieldFormatadoData");
 
-        jTextFieldFormatadoHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
+        try {
+            jTextFieldFormatadoHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         jTextFieldFormatadoHora.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldFormatadoHora.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
         jTextFieldFormatadoHora.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N

@@ -2,10 +2,13 @@ package modelos;
 //@author igor_
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,24 +18,15 @@ public class Prontuario implements Serializable {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private int codigo;
     private String sintomas;
-    private int paciente;
-    private int medico;
     private String diagnostico;
     private String tratamento;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="codigoPaciente")
+    private Paciente paciente; 
     
     public Prontuario(){
     }
-    public Prontuario(int codigoPaciente){
-        this.paciente = codigoPaciente;
-    }
-    public Prontuario(int codigo, String sintomas, int paciente, int medico, String diagnostico, String tratamento) {
-        this.codigo = codigo;
-        this.sintomas = sintomas;
-        this.paciente = paciente;
-        this.medico = medico;
-        this.diagnostico = diagnostico;
-        this.tratamento = tratamento;
-    }
+    
     public int getCodigo() {
         return codigo;
     }
@@ -45,12 +39,7 @@ public class Prontuario implements Serializable {
     public void setSintomas(String sintomas) {
         this.sintomas = sintomas;
     }
-    public int getPaciente() {
-        return paciente;
-    }
-    public void setPaciente(int paciente) {
-        this.paciente = paciente;
-    }
+    
     public String getDiagnostico() {
         return diagnostico;
     }
@@ -64,10 +53,11 @@ public class Prontuario implements Serializable {
         this.tratamento = tratamento;
     }
 
-    public int getMedico() {
-        return medico;
+    public Paciente getPaciente() {
+        return paciente;
     }
-    public void setMedico(int medico) {
-        this.medico = medico;
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 }

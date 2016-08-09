@@ -1,12 +1,19 @@
 package modelos;
 //@author igor_
 
+import java.io.Serializable;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @DiscriminatorValue (value = "DadosAdicionais")
-public class DadosAdPaciente extends Paciente {
+public class DadosAdPaciente implements Serializable{
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private int codigo;
     private boolean fumante;
     private boolean ingereBebidaAlcoolica;
     private boolean colesterol;
@@ -14,10 +21,6 @@ public class DadosAdPaciente extends Paciente {
     private boolean doencaCardiaca;
 
     public DadosAdPaciente(){
-    }
-    public DadosAdPaciente(int codigo, String nome){
-        this.codigo = codigo;
-        this.nome = nome;
     }
     public boolean isFumante() {
         return fumante;
@@ -54,11 +57,5 @@ public class DadosAdPaciente extends Paciente {
     }
     public void setCodigo(int codigo) {
         this.codigo = codigo;
-    }
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 }
