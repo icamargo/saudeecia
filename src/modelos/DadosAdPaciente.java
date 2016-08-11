@@ -2,25 +2,30 @@ package modelos;
 //@author igor_
 
 import java.io.Serializable;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@DiscriminatorValue (value = "DadosAdicionais")
+@Table (name = "DadosAdicionais")
 public class DadosAdPaciente implements Serializable{
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private int codigo;
+    private Integer codigo;
     private boolean fumante;
     private boolean ingereBebidaAlcoolica;
-    private boolean colesterol;
-    private boolean diabetes;
+    private String colesterol;
+    private String diabetes;
     private boolean doencaCardiaca;
 
     public DadosAdPaciente(){
+        this.fumante = false;
+        this.ingereBebidaAlcoolica = false;
+        this.colesterol = "Aceitavel";
+        this.diabetes = "Aceitavel";
+        this.doencaCardiaca = false;
     }
     public boolean isFumante() {
         return fumante;
@@ -34,28 +39,33 @@ public class DadosAdPaciente implements Serializable{
     public void setIngereBebidaAlcoolica(boolean ingereBebidaAlcoolica) {
         this.ingereBebidaAlcoolica = ingereBebidaAlcoolica;
     }
-    public boolean isColesterol() {
-        return colesterol;
-    }
-    public void setColesterol(boolean colesterol) {
-        this.colesterol = colesterol;
-    }
-    public boolean isDiabetes() {
-        return diabetes;
-    }
-    public void setDiabetes(boolean diabetes) {
-        this.diabetes = diabetes;
-    }
+    
     public boolean isDoencaCardiaca() {
         return doencaCardiaca;
     }
     public void setDoencaCardiaca(boolean doencaCardiaca) {
         this.doencaCardiaca = doencaCardiaca;
     }
-    public int getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
+    }
+
+    public String getColesterol() {
+        return colesterol;
+    }
+
+    public void setColesterol(String colesterol) {
+        this.colesterol = colesterol;
+    }
+
+    public String getDiabetes() {
+        return diabetes;
+    }
+
+    public void setDiabetes(String diabetes) {
+        this.diabetes = diabetes;
     }
 }

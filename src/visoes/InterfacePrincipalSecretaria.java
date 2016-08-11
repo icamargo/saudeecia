@@ -5,6 +5,8 @@
  */
 package visoes;
 
+import static visoes.InterfaceLogin.tipoLogin;
+
 /**
  *
  * @author igor_
@@ -16,6 +18,10 @@ public class InterfacePrincipalSecretaria extends javax.swing.JFrame {
      */
     public InterfacePrincipalSecretaria() {
         initComponents();
+        StringBuffer stringBuffer = new StringBuffer(jLabelTipoAcesso.getText());
+        stringBuffer.append(tipoLogin);
+        stringBuffer.append("</b></html>");
+        jLabelTipoAcesso.setText(stringBuffer.toString());
     }
 
     /**
@@ -46,7 +52,7 @@ public class InterfacePrincipalSecretaria extends javax.swing.JFrame {
 
         jLabelTipoAcesso.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabelTipoAcesso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTipoAcesso.setText("<html>Você está logado como: <b>Secretária</b></html>");
+        jLabelTipoAcesso.setText("<html>Você está logado como: <b>");
         jLabelTipoAcesso.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabelTipoAcesso.setName("jLabelTipoAcesso"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();

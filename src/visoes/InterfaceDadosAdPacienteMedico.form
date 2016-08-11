@@ -227,13 +227,13 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonDiabeteDesejavel">
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonDiabeteAceitavel">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroupDiabete"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Desej&#xe1;vel"/>
-            <Property name="name" type="java.lang.String" value="jRadioButtonDiabeteDesejavel" noResource="true"/>
+            <Property name="text" type="java.lang.String" value="Aceit&#xe1;vel"/>
+            <Property name="name" type="java.lang.String" value="jRadioButtonDiabeteAceitavel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -287,13 +287,13 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonColesterolDesejavel">
+        <Component class="javax.swing.JRadioButton" name="jRadioButtonColesterolAceitavel">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroupColesterol"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Desej&#xe1;vel"/>
-            <Property name="name" type="java.lang.String" value="jRadioButtonColesterolDesejavel" noResource="true"/>
+            <Property name="text" type="java.lang.String" value="Aceit&#xe1;vel"/>
+            <Property name="name" type="java.lang.String" value="jRadioButtonColesterolAceitavel" noResource="true"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

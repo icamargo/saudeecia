@@ -10,6 +10,7 @@ public class Medico extends Pessoa{
     private int crm;
 
     public Medico(){
+        this.codigo = null;
     }
     public Medico(int crm, int codigo, String nome) {
         super(codigo, nome);
@@ -21,15 +22,19 @@ public class Medico extends Pessoa{
     public void setCrm(int crm) {
         this.crm = crm;
     }
-    public int getCodigo() {
+    @Override
+    public Integer getCodigo() {
         return codigo;
     }
-    public void setCodigo(int codigo) {
+    @Override
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
+    @Override
     public String getNome() {
         return nome;
     }
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }

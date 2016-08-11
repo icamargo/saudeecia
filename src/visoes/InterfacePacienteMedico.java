@@ -33,6 +33,7 @@ public class InterfacePacienteMedico extends javax.swing.JFrame {
         jButtonVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pacientes - Opções");
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanelOpcoesPaciente.setLayout(new java.awt.GridBagLayout());
@@ -56,6 +57,11 @@ public class InterfacePacienteMedico extends javax.swing.JFrame {
         jButtonVoltar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonVoltar.setName("jButtonVoltar"); // NOI18N
         jButtonVoltar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
         jPanelOpcoesPaciente.add(jButtonVoltar, gridBagConstraints);
@@ -67,6 +73,13 @@ public class InterfacePacienteMedico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        InterfacePrincipalMedico interfacePrincipalMedico = new InterfacePrincipalMedico();
+        interfacePrincipalMedico.setVisible(true);
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments

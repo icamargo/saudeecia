@@ -1,16 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package visoes;
 
-import java.text.ParseException;
-import javax.swing.text.MaskFormatter;
+import controle.ControlePessoa;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import modelos.Paciente;
+import static visoes.InterfaceLogin.tipoLogin;
 
 /**
  *
- * @author igor_
+ * @author Igor
  */
 public class InterfaceCadPaciente extends javax.swing.JFrame {
     /**
@@ -35,26 +35,26 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         jLabelNome = new javax.swing.JLabel();
         jLabelRG = new javax.swing.JLabel();
         jLabelCPF = new javax.swing.JLabel();
-        jTextFieldCPF = new javax.swing.JTextField();
         jLabelDataNascimento = new javax.swing.JLabel();
-        jTextFieldDataNascimento = new javax.swing.JTextField();
         jComboBoxTipoConvenio = new javax.swing.JComboBox<>();
         jLabelTipoConvenio = new javax.swing.JLabel();
         jButtonCriar = new javax.swing.JButton();
-        jTextFieldFormatadoNome = new javax.swing.JFormattedTextField();
-        jTextFieldFormatoRG = new javax.swing.JFormattedTextField();
         jButtonCancelar = new javax.swing.JButton();
         jLabelEndereco = new javax.swing.JLabel();
         jLabelCelular = new javax.swing.JLabel();
-        jTextFieldFormatoEndereço = new javax.swing.JTextField();
-        jTextFieldFormatoCelular = new javax.swing.JTextField();
+        jTextFieldEndereco = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
         jLabelTelefone = new javax.swing.JLabel();
-        jTextFieldFormatoTelefone = new javax.swing.JTextField();
-        jTextFieldFormatoEmail = new javax.swing.JTextField();
+        jTextFieldEmail = new javax.swing.JTextField();
+        jTextFieldNome = new javax.swing.JTextField();
+        jTextFieldRG = new javax.swing.JTextField();
+        jTextFieldFormatadoData = new javax.swing.JFormattedTextField();
+        jTextFieldFormatadoCelular = new javax.swing.JFormattedTextField();
+        jTextFieldFormatadoTelefone = new javax.swing.JFormattedTextField();
+        jTextFieldFormatadoCPF = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Saúde & Cia - Cadastro de Consulta");
+        setTitle("Saúde & Cia - Cadastro de Paciente");
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanelCadPaciente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -109,18 +109,6 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         jPanelCadPaciente.add(jLabelCPF, gridBagConstraints);
         jLabelCPF.getAccessibleContext().setAccessibleName("LabelMedico");
 
-        jTextFieldCPF.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldCPF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldCPF.setName("jTextFieldCPF"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 90;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelCadPaciente.add(jTextFieldCPF, gridBagConstraints);
-        jTextFieldCPF.getAccessibleContext().setAccessibleName("TextFieldMedico");
-
         jLabelDataNascimento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabelDataNascimento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelDataNascimento.setText("Data de nascimento:");
@@ -134,25 +122,9 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         jPanelCadPaciente.add(jLabelDataNascimento, gridBagConstraints);
         jLabelDataNascimento.getAccessibleContext().setAccessibleName("LabelPaciente");
 
-        jTextFieldDataNascimento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextFieldDataNascimento.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldDataNascimento.setName("jTextFieldDataNascimento"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 90;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelCadPaciente.add(jTextFieldDataNascimento, gridBagConstraints);
-
         jComboBoxTipoConvenio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jComboBoxTipoConvenio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Particular", "Plano de Saúde" }));
         jComboBoxTipoConvenio.setName("jComboBoxTipoConvenio"); // NOI18N
-        jComboBoxTipoConvenio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoConvenioActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
@@ -176,6 +148,11 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         jButtonCriar.setText("Criar");
         jButtonCriar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonCriar.setName("jButtonCriar"); // NOI18N
+        jButtonCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCriarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -184,34 +161,6 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanelCadPaciente.add(jButtonCriar, gridBagConstraints);
         jButtonCriar.getAccessibleContext().setAccessibleName("jButtonCriar");
-
-        jTextFieldFormatadoNome.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        jTextFieldFormatadoNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldFormatadoNome.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
-        jTextFieldFormatadoNome.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldFormatadoNome.setName("jTextFieldFormatadoNome"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 90;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelCadPaciente.add(jTextFieldFormatadoNome, gridBagConstraints);
-        jTextFieldFormatadoNome.getAccessibleContext().setAccessibleName("TextFieldFormatadoData");
-
-        jTextFieldFormatoRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
-        jTextFieldFormatoRG.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldFormatoRG.setFocusLostBehavior(javax.swing.JFormattedTextField.PERSIST);
-        jTextFieldFormatoRG.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldFormatoRG.setName("jTextFieldFormatoRG"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 90;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelCadPaciente.add(jTextFieldFormatoRG, gridBagConstraints);
-        jTextFieldFormatoRG.getAccessibleContext().setAccessibleName("TextFieldFormatadoHora");
 
         jButtonCancelar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButtonCancelar.setText("Cancelar");
@@ -252,37 +201,16 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanelCadPaciente.add(jLabelCelular, gridBagConstraints);
 
-        jTextFieldFormatoEndereço.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextFieldFormatoEndereço.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldFormatoEndereço.setName("jTextFieldFormatoEndereço"); // NOI18N
-        jTextFieldFormatoEndereço.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFormatoEndereçoActionPerformed(evt);
-            }
-        });
+        jTextFieldEndereco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldEndereco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldEndereco.setName("jTextFieldEndereco"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 90;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelCadPaciente.add(jTextFieldFormatoEndereço, gridBagConstraints);
-
-        jTextFieldFormatoCelular.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextFieldFormatoCelular.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldFormatoCelular.setName("jTextFieldFormatoCelular"); // NOI18N
-        jTextFieldFormatoCelular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFormatoCelularActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 90;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelCadPaciente.add(jTextFieldFormatoCelular, gridBagConstraints);
+        jPanelCadPaciente.add(jTextFieldEndereco, gridBagConstraints);
 
         jLabelEmail.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabelEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -306,32 +234,95 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanelCadPaciente.add(jLabelTelefone, gridBagConstraints);
 
-        jTextFieldFormatoTelefone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextFieldFormatoTelefone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldFormatoTelefone.setName("jTextFieldFormatoTelefone"); // NOI18N
-        jTextFieldFormatoTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFormatoTelefoneActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 90;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelCadPaciente.add(jTextFieldFormatoTelefone, gridBagConstraints);
-
-        jTextFieldFormatoEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextFieldFormatoEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldFormatoEmail.setName("jTextFieldFormatoEmail"); // NOI18N
+        jTextFieldEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldEmail.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldEmail.setName("jTextFieldEmail"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 90;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelCadPaciente.add(jTextFieldFormatoEmail, gridBagConstraints);
+        jPanelCadPaciente.add(jTextFieldEmail, gridBagConstraints);
+
+        jTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldNome.setName("jTextFieldNome"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 90;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        jPanelCadPaciente.add(jTextFieldNome, gridBagConstraints);
+
+        jTextFieldRG.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldRG.setName("jTextFieldRG"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 90;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        jPanelCadPaciente.add(jTextFieldRG, gridBagConstraints);
+
+        try {
+            jTextFieldFormatadoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldFormatadoData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldFormatadoData.setName("jTextFieldFormatadoData"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 90;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        jPanelCadPaciente.add(jTextFieldFormatadoData, gridBagConstraints);
+
+        try {
+            jTextFieldFormatadoCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #### - ####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldFormatadoCelular.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldFormatadoCelular.setName("jTextFieldFormatadoCelular"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 90;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        jPanelCadPaciente.add(jTextFieldFormatadoCelular, gridBagConstraints);
+
+        try {
+            jTextFieldFormatadoTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #### - ####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldFormatadoTelefone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldFormatadoTelefone.setName("jTextFieldFormatadoTelefone"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 90;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        jPanelCadPaciente.add(jTextFieldFormatadoTelefone, gridBagConstraints);
+
+        try {
+            jTextFieldFormatadoCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.### - ##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jTextFieldFormatadoCPF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 90;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        jPanelCadPaciente.add(jTextFieldFormatadoCPF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -348,25 +339,37 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
     private void cancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar
         // TODO add your handling code here:
         this.setVisible(false);
-        InterfaceOpcoesConsulta interfaceOpcoesConsulta = new InterfaceOpcoesConsulta();
-        interfaceOpcoesConsulta.setVisible(true);
+        InterfacePacienteSecretaria interfacePacienteSecretaria = new InterfacePacienteSecretaria();
+        interfacePacienteSecretaria.setVisible(true);
     }//GEN-LAST:event_cancelar
 
-    private void jComboBoxTipoConvenioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoConvenioActionPerformed
+    private void jButtonCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCriarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoConvenioActionPerformed
+        if (evt.getSource() == jButtonCriar){
+            Paciente paciente = new Paciente();
+            ControlePessoa controlePessoa = new ControlePessoa();
 
-    private void jTextFieldFormatoEndereçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFormatoEndereçoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFormatoEndereçoActionPerformed
-
-    private void jTextFieldFormatoCelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFormatoCelularActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFormatoCelularActionPerformed
-
-    private void jTextFieldFormatoTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFormatoTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFormatoTelefoneActionPerformed
+            paciente.setNome(jTextFieldNome.getText());
+            paciente.setCpf(jTextFieldFormatadoCPF.getText());
+            paciente.setRg(jTextFieldRG.getText());
+            paciente.setDataNascimento(jTextFieldFormatadoData.getText());
+            paciente.setEndereco(jTextFieldEndereco.getText());
+            paciente.setCelular(jTextFieldFormatadoCelular.getText());
+            paciente.setTelefone(jTextFieldFormatadoTelefone.getText());
+            paciente.setEmail(jTextFieldEmail.getText());
+            paciente.setTipoConvenio(jComboBoxTipoConvenio.getSelectedItem().toString());
+            try {
+                controlePessoa.adicionarPaciente(paciente);
+            } catch (IOException ex) {
+                Logger.getLogger(InterfaceCadPaciente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //JOptionPane.showMessageDialog(this, "Paciente Cadastrado com Sucesso!", "Informações", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Paciente Cadastrado com Sucesso!");
+            this.setVisible(false);
+            InterfacePacienteSecretaria interfacePacienteSecretaria = new InterfacePacienteSecretaria();
+            interfacePacienteSecretaria.setVisible(true);
+        }
+    }//GEN-LAST:event_jButtonCriarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -418,13 +421,13 @@ public class InterfaceCadPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTelefone;
     private javax.swing.JLabel jLabelTipoConvenio;
     private javax.swing.JPanel jPanelCadPaciente;
-    private javax.swing.JTextField jTextFieldCPF;
-    private javax.swing.JTextField jTextFieldDataNascimento;
-    private javax.swing.JFormattedTextField jTextFieldFormatadoNome;
-    private javax.swing.JTextField jTextFieldFormatoCelular;
-    private javax.swing.JTextField jTextFieldFormatoEmail;
-    private javax.swing.JTextField jTextFieldFormatoEndereço;
-    private javax.swing.JFormattedTextField jTextFieldFormatoRG;
-    private javax.swing.JTextField jTextFieldFormatoTelefone;
+    private javax.swing.JTextField jTextFieldEmail;
+    private javax.swing.JTextField jTextFieldEndereco;
+    private javax.swing.JFormattedTextField jTextFieldFormatadoCPF;
+    private javax.swing.JFormattedTextField jTextFieldFormatadoCelular;
+    private javax.swing.JFormattedTextField jTextFieldFormatadoData;
+    private javax.swing.JFormattedTextField jTextFieldFormatadoTelefone;
+    private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldRG;
     // End of variables declaration//GEN-END:variables
 }

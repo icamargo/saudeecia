@@ -2,7 +2,6 @@ package modelos;
 //@author igor_
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
@@ -11,16 +10,13 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @DiscriminatorValue (value = "Paciente")
 public class Paciente extends Pessoa{
     private String cpf;
     private String rg;
-    @Temporal(TemporalType.DATE)
-    private Calendar dataNascimento;
+    private String dataNascimento;
     private String endereco;
     private String celular;
     private String telefone;
@@ -35,12 +31,16 @@ public class Paciente extends Pessoa{
     private List<Cirurgia> cirurgias;
     @OneToMany (cascade = CascadeType.ALL)
     private List<Alergia> alergias;
+    @OneToMany (cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    private List<Consulta> consultas;
     
     public Paciente(){
-        this.prontuarios = new ArrayList<>();
-        this.dadosAdPaciente = null;
+        this.codigo = null;
+        this.prontuarios = new ArrayList();
+        this.dadosAdPaciente = new DadosAdPaciente();
         this.cirurgias = new ArrayList();
-        this.alergias = new ArrayList<>();
+        this.alergias = new ArrayList();
+        this.consultas = new ArrayList();
     }
 
     public String getCpf() {
@@ -57,14 +57,6 @@ public class Paciente extends Pessoa{
 
     public void setRg(String rg) {
         this.rg = rg;
-    }
-
-    public Calendar getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Calendar dataNascimento) {
-        this.dataNascimento = dataNascimento;
     }
 
     public String getEndereco() {
@@ -137,6 +129,42 @@ public class Paciente extends Pessoa{
 
     public void setAlergias(List<Alergia> alergias) {
         this.alergias = alergias;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public List<Consulta> getConsultas() {
+        return consultas;
+    }
+
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
+    }
+
+    @Override
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    @Override
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     
 }

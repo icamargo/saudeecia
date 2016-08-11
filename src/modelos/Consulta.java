@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -20,17 +21,20 @@ public class Consulta implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private int codigo;
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Calendar dataHora;
     private String tipo;
-    @OneToOne(cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
-    @JoinColumn(name = "codigoPaciente")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="codigoPaciente")
     private Paciente paciente;
-    @OneToOne(cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
-    @JoinColumn(name = "codigoMedico")
+    @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn (name = "codigoMedico")
     private Medico medico;
     
     public Consulta(){
+        this.dataHora = null;
+        this.paciente = null;
+        this.medico = null;
     }
     public int getCodigo() {
         return codigo;

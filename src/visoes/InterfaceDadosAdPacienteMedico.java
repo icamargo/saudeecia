@@ -12,11 +12,11 @@ import javax.swing.text.MaskFormatter;
  *
  * @author igor_
  */
-public class InterfaceDadosAdcPacienteMedico extends javax.swing.JFrame {
+public class InterfaceDadosAdPacienteMedico extends javax.swing.JFrame {
     /**
      * Creates new form InterfaceCadConsulta
      */
-    public InterfaceDadosAdcPacienteMedico() {
+    public InterfaceDadosAdPacienteMedico() {
         initComponents();
     }
 
@@ -47,11 +47,11 @@ public class InterfaceDadosAdcPacienteMedico extends javax.swing.JFrame {
         jRadioButtonFumaNao = new javax.swing.JRadioButton();
         jLabelDiabete = new javax.swing.JLabel();
         jRadioButtonDiabetelBaixo = new javax.swing.JRadioButton();
-        jRadioButtonDiabeteDesejavel = new javax.swing.JRadioButton();
+        jRadioButtonDiabeteAceitavel = new javax.swing.JRadioButton();
         jRadioButtonDiabeteAlto = new javax.swing.JRadioButton();
         jLabelColesterol = new javax.swing.JLabel();
         jRadioButtonColesterolBaixo = new javax.swing.JRadioButton();
-        jRadioButtonColesterolDesejavel = new javax.swing.JRadioButton();
+        jRadioButtonColesterolAceitavel = new javax.swing.JRadioButton();
         jRadioButtonColesterolAlto = new javax.swing.JRadioButton();
         jLabelDoencaCardiaca = new javax.swing.JLabel();
         jLabelCirurgia = new javax.swing.JLabel();
@@ -226,15 +226,15 @@ public class InterfaceDadosAdcPacienteMedico extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanelDadosAdcPaciente.add(jRadioButtonDiabetelBaixo, gridBagConstraints);
 
-        buttonGroupDiabete.add(jRadioButtonDiabeteDesejavel);
-        jRadioButtonDiabeteDesejavel.setText("Desejável");
-        jRadioButtonDiabeteDesejavel.setName("jRadioButtonDiabeteDesejavel"); // NOI18N
+        buttonGroupDiabete.add(jRadioButtonDiabeteAceitavel);
+        jRadioButtonDiabeteAceitavel.setText("Aceitável");
+        jRadioButtonDiabeteAceitavel.setName("jRadioButtonDiabeteAceitavel"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelDadosAdcPaciente.add(jRadioButtonDiabeteDesejavel, gridBagConstraints);
+        jPanelDadosAdcPaciente.add(jRadioButtonDiabeteAceitavel, gridBagConstraints);
 
         buttonGroupDiabete.add(jRadioButtonDiabeteAlto);
         jRadioButtonDiabeteAlto.setText("Alto");
@@ -273,15 +273,15 @@ public class InterfaceDadosAdcPacienteMedico extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
         jPanelDadosAdcPaciente.add(jRadioButtonColesterolBaixo, gridBagConstraints);
 
-        buttonGroupColesterol.add(jRadioButtonColesterolDesejavel);
-        jRadioButtonColesterolDesejavel.setText("Desejável");
-        jRadioButtonColesterolDesejavel.setName("jRadioButtonColesterolDesejavel"); // NOI18N
+        buttonGroupColesterol.add(jRadioButtonColesterolAceitavel);
+        jRadioButtonColesterolAceitavel.setText("Aceitável");
+        jRadioButtonColesterolAceitavel.setName("jRadioButtonColesterolAceitavel"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-        jPanelDadosAdcPaciente.add(jRadioButtonColesterolDesejavel, gridBagConstraints);
+        jPanelDadosAdcPaciente.add(jRadioButtonColesterolAceitavel, gridBagConstraints);
 
         buttonGroupColesterol.add(jRadioButtonColesterolAlto);
         jRadioButtonColesterolAlto.setText("Alto");
@@ -562,11 +562,11 @@ public class InterfaceDadosAdcPacienteMedico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFuma;
     private javax.swing.JPanel jPanelDadosAdcPaciente;
     private javax.swing.JRadioButton jRadioButtonBebeNao;
+    private javax.swing.JRadioButton jRadioButtonColesterolAceitavel;
     private javax.swing.JRadioButton jRadioButtonColesterolAlto;
     private javax.swing.JRadioButton jRadioButtonColesterolBaixo;
-    private javax.swing.JRadioButton jRadioButtonColesterolDesejavel;
+    private javax.swing.JRadioButton jRadioButtonDiabeteAceitavel;
     private javax.swing.JRadioButton jRadioButtonDiabeteAlto;
-    private javax.swing.JRadioButton jRadioButtonDiabeteDesejavel;
     private javax.swing.JRadioButton jRadioButtonDiabetelBaixo;
     private javax.swing.JRadioButton jRadioButtonDoencaCardiacaNao;
     private javax.swing.JRadioButton jRadioButtonDoencaCardiacaSim;

@@ -5,6 +5,8 @@
  */
 package visoes;
 
+import static visoes.InterfaceLogin.tipoLogin;
+
 /**
  *
  * @author igor_
@@ -16,6 +18,10 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
      */
     public InterfacePrincipalADM() {
         initComponents();
+        StringBuffer stringBuffer = new StringBuffer(jLabelTipoAcesso.getText());
+        stringBuffer.append(tipoLogin);
+        stringBuffer.append("</b></html>");
+        jLabelTipoAcesso.setText(stringBuffer.toString());
     }
 
     /**
@@ -34,7 +40,7 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
         jButtonOpcoesPaciente = new javax.swing.JButton();
         jButtonOpcoesRelatorio = new javax.swing.JButton();
         jButtonLogoff = new javax.swing.JButton();
-        jButtonOpcoesUsuario = new javax.swing.JButton();
+        jButtonCriarMedico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Saúde & Cia - Menu Principal");
@@ -47,7 +53,7 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
 
         jLabelTipoAcesso.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabelTipoAcesso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTipoAcesso.setText("<html>Você está logado como: <b>Administrador</b></html>");
+        jLabelTipoAcesso.setText("<html>Você está logado como: <b>");
         jLabelTipoAcesso.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabelTipoAcesso.setName("jLabelTipoAcesso"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -86,6 +92,11 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
         jButtonOpcoesPaciente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonOpcoesPaciente.setName("jButtonOpcoesPaciente"); // NOI18N
         jButtonOpcoesPaciente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonOpcoesPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOpcoesPacienteActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -124,19 +135,24 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
         jPanelMenuPrincipal.add(jButtonLogoff, gridBagConstraints);
         jButtonLogoff.getAccessibleContext().setAccessibleName("ButtonLogoff");
 
-        jButtonOpcoesUsuario.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jButtonOpcoesUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario.png"))); // NOI18N
-        jButtonOpcoesUsuario.setText("Usuários");
-        jButtonOpcoesUsuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
-        jButtonOpcoesUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonOpcoesUsuario.setName("jButtonOpcoesUsuario"); // NOI18N
-        jButtonOpcoesUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonCriarMedico.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButtonCriarMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/medico.png"))); // NOI18N
+        jButtonCriarMedico.setText("Criar Médico");
+        jButtonCriarMedico.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
+        jButtonCriarMedico.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonCriarMedico.setName("jButtonCriarMedico"); // NOI18N
+        jButtonCriarMedico.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonCriarMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCriarMedicoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
-        jPanelMenuPrincipal.add(jButtonOpcoesUsuario, gridBagConstraints);
+        jPanelMenuPrincipal.add(jButtonCriarMedico, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -161,6 +177,20 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
         InterfaceLogin interfaceLogin = new InterfaceLogin();
         interfaceLogin.setVisible(true);
     }//GEN-LAST:event_logoff
+
+    private void jButtonOpcoesPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpcoesPacienteActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        InterfacePacienteSecretaria interfacePacienteSecretaria = new InterfacePacienteSecretaria();
+        interfacePacienteSecretaria.setVisible(true);
+    }//GEN-LAST:event_jButtonOpcoesPacienteActionPerformed
+
+    private void jButtonCriarMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCriarMedicoActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        InterfaceCadMedico interfaceCadMedico = new InterfaceCadMedico();
+        interfaceCadMedico.setVisible(true);
+    }//GEN-LAST:event_jButtonCriarMedicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,11 +229,11 @@ public class InterfacePrincipalADM extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCriarMedico;
     private javax.swing.JButton jButtonLogoff;
     private javax.swing.JButton jButtonOpcoesConsulta;
     private javax.swing.JButton jButtonOpcoesPaciente;
     private javax.swing.JButton jButtonOpcoesRelatorio;
-    private javax.swing.JButton jButtonOpcoesUsuario;
     private javax.swing.JLabel jLabelTipoAcesso;
     private javax.swing.JPanel jPanelMenuPrincipal;
     // End of variables declaration//GEN-END:variables

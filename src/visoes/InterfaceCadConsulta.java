@@ -5,8 +5,15 @@
  */
 package visoes;
 
+import controle.ControleConsulta;
+import java.io.IOException;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
+import modelos.Consulta;
+import org.hibernate.NonUniqueObjectException;
 
 /**
  *
@@ -163,6 +170,11 @@ public class InterfaceCadConsulta extends javax.swing.JFrame {
         jButtonCriar.setText("Criar");
         jButtonCriar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonCriar.setName("jButtonCriar"); // NOI18N
+        jButtonCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCriarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -243,6 +255,31 @@ public class InterfaceCadConsulta extends javax.swing.JFrame {
         InterfaceOpcoesConsulta interfaceOpcoesConsulta = new InterfaceOpcoesConsulta();
         interfaceOpcoesConsulta.setVisible(true);
     }//GEN-LAST:event_cancelar
+
+    private void jButtonCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCriarActionPerformed
+        // TODO add your handling code here:
+        Consulta consulta = new Consulta();
+        int codMedico, codPaciente;
+        String strDataConsulta, strHoraConsulta;
+        
+        consulta.setTipo(jComboBoxTipoConsulta.getSelectedItem().toString());
+        codMedico = Integer.parseInt(jTextFieldMedico.getText());
+        codPaciente = Integer.parseInt(jTextFieldPaciente.getText());
+        strDataConsulta = jTextFieldFormatadoData.getText();
+        strHoraConsulta = jTextFieldFormatadoHora.getText();
+        
+        ControleConsulta controleConsulta = new ControleConsulta();
+        boolean loop=true;
+        try {
+            controleConsulta.criarConsulta(consulta, codMedico, codPaciente, strDataConsulta, strHoraConsulta);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfaceCadConsulta.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NonUniqueObjectException ex) {
+            JOptionPane.showMessageDialog(this, "O médico e o paciente informados já possuem consulta marcada!");
+        }
+        
+        
+    }//GEN-LAST:event_jButtonCriarActionPerformed
 
     /**
      * @param args the command line arguments

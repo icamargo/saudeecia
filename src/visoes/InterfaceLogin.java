@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  * @author igor_
  */
 public class InterfaceLogin extends javax.swing.JFrame {
+    public static String tipoLogin;
 
     /**
      * Creates new form InterfaceLogin
@@ -34,10 +35,9 @@ public class InterfaceLogin extends javax.swing.JFrame {
         jPanelLogin = new javax.swing.JPanel();
         jLabelLogoLogin = new javax.swing.JLabel();
         jLabelTxtLogin = new javax.swing.JLabel();
-        jTextFieldLogin = new javax.swing.JTextField();
-        jLabelTxtSenha = new javax.swing.JLabel();
-        jPswFieldSenha = new javax.swing.JPasswordField();
-        jButtonEntrar = new javax.swing.JButton();
+        jButtonAdministrador = new javax.swing.JButton();
+        jButtonSecretaria = new javax.swing.JButton();
+        jButtonMedico = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -59,66 +59,61 @@ public class InterfaceLogin extends javax.swing.JFrame {
         jLabelLogoLogin.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         jPanelLogin.add(jLabelLogoLogin, gridBagConstraints);
 
         jLabelTxtLogin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabelTxtLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTxtLogin.setText("Login");
+        jLabelTxtLogin.setText("Escolha o Tipo de Login:");
         jLabelTxtLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabelTxtLogin.setName("jLabelTxtLogin"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         jPanelLogin.add(jLabelTxtLogin, gridBagConstraints);
 
-        jTextFieldLogin.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldLogin.setName("jTextFieldLogin"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipadx = 150;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
-        jPanelLogin.add(jTextFieldLogin, gridBagConstraints);
-        jTextFieldLogin.getAccessibleContext().setAccessibleName("TextFieldLogin");
-        jTextFieldLogin.getAccessibleContext().setAccessibleDescription("");
-
-        jLabelTxtSenha.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabelTxtSenha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTxtSenha.setText("Senha");
-        jLabelTxtSenha.setName("jLabelTxtSenha"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        jPanelLogin.add(jLabelTxtSenha, gridBagConstraints);
-
-        jPswFieldSenha.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jPswFieldSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPswFieldSenha.setName("jPswFieldSenha"); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.ipadx = 150;
-        jPanelLogin.add(jPswFieldSenha, gridBagConstraints);
-        jPswFieldSenha.getAccessibleContext().setAccessibleName("Senha");
-
-        jButtonEntrar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButtonEntrar.setText("Entrar");
-        jButtonEntrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonEntrar.setName("jButtonEntrar"); // NOI18N
-        jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdministrador.setText("Administrador");
+        jButtonAdministrador.setName("jButtonAdministrador"); // NOI18N
+        jButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entrar(evt);
+                jButtonAdministradorActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanelLogin.add(jButtonEntrar, gridBagConstraints);
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        jPanelLogin.add(jButtonAdministrador, gridBagConstraints);
+
+        jButtonSecretaria.setText("Secretaria");
+        jButtonSecretaria.setName("jButtonSecretaria"); // NOI18N
+        jButtonSecretaria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSecretariaActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        jPanelLogin.add(jButtonSecretaria, gridBagConstraints);
+
+        jButtonMedico.setText("Médico");
+        jButtonMedico.setName("jButtonMedico"); // NOI18N
+        jButtonMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMedicoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 35;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        jPanelLogin.add(jButtonMedico, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -131,31 +126,29 @@ public class InterfaceLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void entrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrar
+    private void jButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdministradorActionPerformed
         // TODO add your handling code here:
-        if(evt.getSource() == jButtonEntrar){
-            switch (jTextFieldLogin.getText()) {
-                case "Administrador":
-                    InterfacePrincipalADM interfacePrincipalAdm = new InterfacePrincipalADM();
-                    this.setVisible(false);
-                    interfacePrincipalAdm.setVisible(true);
-                    break;
-                case "Secretaria":
-                    InterfacePrincipalSecretaria interfacePrincipalSecretaria = new InterfacePrincipalSecretaria();
-                    this.setVisible(false);
-                    interfacePrincipalSecretaria.setVisible(true);
-                    break;
-                case "Medico":
-                    InterfacePrincipalMedico interfacePrincipalMedico = new InterfacePrincipalMedico();
-                    this.setVisible(false);
-                    interfacePrincipalMedico.setVisible(true);
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null, "Dados Inválidos!\n Digite Novamente!", "Erro!", JOptionPane.ERROR_MESSAGE);
-                    break;
-            }
-        }
-    }//GEN-LAST:event_entrar
+        tipoLogin = "Administrador";
+        this.setVisible(false);
+        InterfacePrincipalADM interfacePrincipalADM = new InterfacePrincipalADM();
+        interfacePrincipalADM.setVisible(true);
+    }//GEN-LAST:event_jButtonAdministradorActionPerformed
+
+    private void jButtonSecretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSecretariaActionPerformed
+        // TODO add your handling code here:
+        tipoLogin = "Secretária";
+        this.setVisible(false);
+        InterfacePrincipalSecretaria interfacePrincipalSecretaria = new InterfacePrincipalSecretaria();
+        interfacePrincipalSecretaria.setVisible(true);
+    }//GEN-LAST:event_jButtonSecretariaActionPerformed
+
+    private void jButtonMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMedicoActionPerformed
+        // TODO add your handling code here:
+        tipoLogin = "Médico";
+        this.setVisible(false);
+        InterfacePrincipalMedico interfacePrincipalMedico = new InterfacePrincipalMedico();
+        interfacePrincipalMedico.setVisible(true);
+    }//GEN-LAST:event_jButtonMedicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,12 +187,11 @@ public class InterfaceLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonEntrar;
+    private javax.swing.JButton jButtonAdministrador;
+    private javax.swing.JButton jButtonMedico;
+    private javax.swing.JButton jButtonSecretaria;
     private javax.swing.JLabel jLabelLogoLogin;
     private javax.swing.JLabel jLabelTxtLogin;
-    private javax.swing.JLabel jLabelTxtSenha;
     private javax.swing.JPanel jPanelLogin;
-    private javax.swing.JPasswordField jPswFieldSenha;
-    private javax.swing.JTextField jTextFieldLogin;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public abstract class Pessoa implements Serializable{
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    protected int codigo;
+    protected Integer codigo;
     protected String nome;
     @Column(insertable=false, updatable=false)
     private String tipoPessoa;
@@ -30,10 +30,10 @@ public abstract class Pessoa implements Serializable{
         this.codigo = codigo;
         this.nome = nome;
     }
-    public int getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
     public String getNome() {

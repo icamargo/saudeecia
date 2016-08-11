@@ -49,7 +49,7 @@
               <Font name="Arial" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Voc&#xea; est&#xe1; logado como: &lt;b&gt;M&#xe9;dico&lt;/b&gt;&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;Voc&#xea; est&#xe1; logado como: &lt;b&gt;"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="name" type="java.lang.String" value="jLabelTipoAcesso" noResource="true"/>
           </Properties>
