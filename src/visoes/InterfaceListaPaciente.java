@@ -5,6 +5,8 @@
  */
 package visoes;
 
+import controle.ControlePessoa;
+
 /**
  *
  * @author Tatiane
@@ -28,25 +30,32 @@ public class InterfaceListaPaciente extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanelListaPacientes = new javax.swing.JPanel();
+        jLabelPacientes = new javax.swing.JLabel();
+        jScrollPanePacientes = new javax.swing.JScrollPane();
+        jTablePacientes = new javax.swing.JTable();
+        jLabelCodigo = new javax.swing.JLabel();
+        jTextFieldCodigo = new javax.swing.JTextField();
+        jLabelNome = new javax.swing.JLabel();
+        jTextFieldNome = new javax.swing.JTextField();
+        jButtonConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Saúde & Cia - Listar Pacientes");
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanelListaPacientes.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText("Pacientes:");
+        jLabelPacientes.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabelPacientes.setText("Pacientes:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
-        jPanel1.add(jLabel1, gridBagConstraints);
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.insets = new java.awt.Insets(25, 25, 25, 25);
+        jPanelListaPacientes.add(jLabelPacientes, gridBagConstraints);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -58,11 +67,12 @@ public class InterfaceListaPaciente extends javax.swing.JFrame {
                 "Código", "Nome", "CPF", "Telefone", "Email"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPanePacientes.setViewportView(jTablePacientes);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 352;
         gridBagConstraints.ipady = 248;
@@ -70,12 +80,74 @@ public class InterfaceListaPaciente extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(15, 15, 15, 15);
-        jPanel1.add(jScrollPane1, gridBagConstraints);
+        jPanelListaPacientes.add(jScrollPanePacientes, gridBagConstraints);
 
-        getContentPane().add(jPanel1, new java.awt.GridBagConstraints());
+        jLabelCodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelCodigo.setText("Código:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        jPanelListaPacientes.add(jLabelCodigo, gridBagConstraints);
+
+        jTextFieldCodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 100;
+        jPanelListaPacientes.add(jTextFieldCodigo, gridBagConstraints);
+
+        jLabelNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNome.setText("Nome:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 115;
+        jPanelListaPacientes.add(jLabelNome, gridBagConstraints);
+
+        jTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 100;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 40);
+        jPanelListaPacientes.add(jTextFieldNome, gridBagConstraints);
+
+        jButtonConsultar.setText("Consultar");
+        jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConsultarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
+        jPanelListaPacientes.add(jButtonConsultar, gridBagConstraints);
+
+        getContentPane().add(jPanelListaPacientes, new java.awt.GridBagConstraints());
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
+        // TODO add your handling code here:
+        String nome;
+        int codigoPaciente;
+        
+        ControlePessoa controlePessoa = new ControlePessoa();
+        
+        if (!(jTextFieldCodigo.getText().trim().equals(""))) {
+            codigoPaciente = Integer.parseInt(jTextFieldCodigo.getText());
+            controlePessoa.buscarPacientePorCodigo(codigoPaciente);
+        } else if (!(jTextFieldNome.getText().trim().equals(""))) {
+            nome = jTextFieldNome.getText();
+            controlePessoa.buscarPacientesPorNome(nome);
+        }
+    }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,9 +185,14 @@ public class InterfaceListaPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton jButtonConsultar;
+    private javax.swing.JLabel jLabelCodigo;
+    private javax.swing.JLabel jLabelNome;
+    private javax.swing.JLabel jLabelPacientes;
+    private javax.swing.JPanel jPanelListaPacientes;
+    private javax.swing.JScrollPane jScrollPanePacientes;
+    private javax.swing.JTable jTablePacientes;
+    private javax.swing.JTextField jTextFieldCodigo;
+    private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
 }

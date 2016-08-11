@@ -1,6 +1,7 @@
 package modelos;
 
 import java.io.IOException;
+import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -14,6 +15,7 @@ import org.hibernate.criterion.Restrictions;
 public class PessoaDAO {
     private Session session;
     private Transaction trans;
+    private List<Pessoa> pessoas;
     
     private void preparaSessao(){
         try{
@@ -66,6 +68,11 @@ public class PessoaDAO {
         trans.commit();
         session.close();
         return medico;
+    }
+    
+    public List<Pessoa> getPessoasPorNome(String nome){
+        
+        return pessoas;
     }
         
 }
