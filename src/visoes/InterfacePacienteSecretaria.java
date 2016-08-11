@@ -63,6 +63,11 @@ public class InterfacePacienteSecretaria extends javax.swing.JFrame {
         jButtonListarPacientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonListarPacientes.setName("jButtonListarPacientes"); // NOI18N
         jButtonListarPacientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonListarPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListarPacientesActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
@@ -106,6 +111,13 @@ public class InterfacePacienteSecretaria extends javax.swing.JFrame {
         InterfacePrincipalSecretaria interfacePrincipalSecretaria = new InterfacePrincipalSecretaria();
         interfacePrincipalSecretaria.setVisible(true);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jButtonListarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarPacientesActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        InterfaceListaPaciente interfaceListaPaciente = new InterfaceListaPaciente();
+        interfaceListaPaciente.setVisible(true);
+    }//GEN-LAST:event_jButtonListarPacientesActionPerformed
 
     /**
      * @param args the command line arguments

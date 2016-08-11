@@ -6,6 +6,12 @@
 package visoes;
 
 import controle.ControlePessoa;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+import modelos.Paciente;
 
 /**
  *
@@ -18,6 +24,31 @@ public class InterfaceListaPaciente extends javax.swing.JFrame {
      */
     public InterfaceListaPaciente() {
         initComponents();
+    }
+    private List pacientes = new ArrayList();
+    
+    private void mostrarResultados(ArrayList listaResultados) {
+        Vector<String> cabecalhosTabela = new Vector<String>();
+        Vector tabelaDados = new Vector();
+        cabecalhosTabela.add("Código");
+        cabecalhosTabela.add("Nome");
+        cabecalhosTabela.add("CPF");
+        cabecalhosTabela.add("Telefone");
+        cabecalhosTabela.add("Email");
+
+        
+        for (Iterator it = listaResultados.iterator(); it.hasNext();) {
+            Object o = it.next();
+            Paciente paciente = (Paciente) o;
+            Vector<Object> linhaTabela = new Vector<Object>();
+            linhaTabela.add(paciente.getCodigo());
+            linhaTabela.add(paciente.getNome());
+            linhaTabela.add(paciente.getCpf());
+            linhaTabela.add(paciente.getTelefone());
+            linhaTabela.add(paciente.getEmail());
+            tabelaDados.add(linhaTabela);
+        }
+        jTablePacientes.setModel(new DefaultTableModel(tabelaDados, cabecalhosTabela));
     }
 
     /**
@@ -39,6 +70,21 @@ public class InterfaceListaPaciente extends javax.swing.JFrame {
         jLabelNome = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jButtonConsultar = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Saúde & Cia - Listar Pacientes");
@@ -127,7 +173,73 @@ public class InterfaceListaPaciente extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
         jPanelListaPacientes.add(jButtonConsultar, gridBagConstraints);
 
+        jTextField1.setText("jTextField1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        jPanelListaPacientes.add(jTextField1, gridBagConstraints);
+
+        jTextField2.setText("jTextField2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        jPanelListaPacientes.add(jTextField2, gridBagConstraints);
+
+        jTextField3.setText("jTextField3");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        jPanelListaPacientes.add(jTextField3, gridBagConstraints);
+
+        jTextField4.setText("jTextField4");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        jPanelListaPacientes.add(jTextField4, gridBagConstraints);
+
+        jTextField5.setText("jTextField5");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        jPanelListaPacientes.add(jTextField5, gridBagConstraints);
+
+        jTextField6.setText("jTextField6");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        jPanelListaPacientes.add(jTextField6, gridBagConstraints);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        jPanelListaPacientes.add(jComboBox1, gridBagConstraints);
+
         getContentPane().add(jPanelListaPacientes, new java.awt.GridBagConstraints());
+
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new java.awt.GridBagConstraints());
+
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new java.awt.GridBagConstraints());
+
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new java.awt.GridBagConstraints());
+
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new java.awt.GridBagConstraints());
+
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new java.awt.GridBagConstraints());
+
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new java.awt.GridBagConstraints());
+
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new java.awt.GridBagConstraints());
+
+        jLabel8.setText("jLabel8");
+        getContentPane().add(jLabel8, new java.awt.GridBagConstraints());
 
         pack();
         setLocationRelativeTo(null);
@@ -142,11 +254,15 @@ public class InterfaceListaPaciente extends javax.swing.JFrame {
         
         if (!(jTextFieldCodigo.getText().trim().equals(""))) {
             codigoPaciente = Integer.parseInt(jTextFieldCodigo.getText());
-            controlePessoa.buscarPacientePorCodigo(codigoPaciente);
+            pacientes = controlePessoa.buscarPacientePorCodigo(codigoPaciente);
         } else if (!(jTextFieldNome.getText().trim().equals(""))) {
             nome = jTextFieldNome.getText();
-            controlePessoa.buscarPacientesPorNome(nome);
+            pacientes = controlePessoa.buscarPacientesPorNome(nome);
         }
+        else {
+            pacientes = controlePessoa.buscarPacientes();
+        }
+        this.mostrarResultados((ArrayList) pacientes);
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     /**
@@ -186,12 +302,27 @@ public class InterfaceListaPaciente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConsultar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelPacientes;
     private javax.swing.JPanel jPanelListaPacientes;
     private javax.swing.JScrollPane jScrollPanePacientes;
     private javax.swing.JTable jTablePacientes;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables

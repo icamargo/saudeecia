@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -15,7 +16,7 @@ import org.hibernate.criterion.Restrictions;
 public class PessoaDAO {
     private Session session;
     private Transaction trans;
-    private List<Pessoa> pessoas;
+    private List<Pessoa> pacientes;
     
     private void preparaSessao(){
         try{
@@ -48,10 +49,11 @@ public class PessoaDAO {
         Paciente paciente = null;
         
         this.preparaSessao();
-        Criteria criteria = session.createCriteria(Pessoa.class);
+        Criteria criteria = session.createCriteria(Paciente.class);
         criteria.add(Restrictions.eq("codigo", codigoPaciente));
         criteria.setMaxResults(1);
         paciente = (Paciente) criteria.uniqueResult();
+       
         trans.commit();
         session.close();
         return paciente;
@@ -70,9 +72,24 @@ public class PessoaDAO {
         return medico;
     }
     
-    public List<Pessoa> getPessoasPorNome(String nome){
+    public List<Pessoa> getPacientesPorNome(String nome){
+        this.preparaSessao();
+        Criteria criteria = session.createCriteria(Paciente.class);
+        criteria.add(Restrictions.ilike("nome", nome, MatchMode.ANYWHERE));
+        pacientes = criteria.list();
         
-        return pessoas;
+        trans.commit();
+        session.close();
+        return pacientes;
     }
+    
+    public List<Pessoa> getPacientes(){
+        this.preparaSessao();
+        Criteria criteria = session.createCriteria(Paciente.class);
+        pacientes = criteria.list();
         
+        trans.commit();
+        session.close();
+        return pacientes;
+    }
 }
